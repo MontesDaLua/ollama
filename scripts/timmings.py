@@ -1,10 +1,9 @@
 from ollama import Client
 import json
 import time
-
+from config.config import G_cur_host_port
 # Common definitions
 G_NRequest = 1
-G_cur_host_port = "http://localhost:11434"
 
 module_list = [
  #'llama3.2',
