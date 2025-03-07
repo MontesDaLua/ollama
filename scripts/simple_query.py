@@ -3,9 +3,26 @@ import json
 import time
 from config.config import G_cur_host_port
 # Common definitions
+# Module to use in  ollama
 module = 'phi4-mini'
+# Query list
+q_list = [
+      {
+        'role': 'user',
+        'content': ".".join([
+            'Why is the sky blue?',
+            'reply in markdown'
+        ])
+      },
+      {
+        'role': 'user',
+        'content': ".".join([
+            'When the  sky is blue?'
+        ])
+      },
+]
 
-def query(cur_model, cur_host_port, query_list):
+def simple_query(cur_model, cur_host_port, query_list):
     """
      Returns the query response for each element in a list
     """
@@ -20,17 +37,8 @@ def query(cur_model, cur_host_port, query_list):
         )
     return response_list
 
-q_list = [
-      {
-        'role': 'user',
-        'content': 'Why is the sky blue?. reply in markdown'
-      },
-      {
-        'role': 'user',
-        'content': 'When the  sky is blue?. '
-      },
-]
-res_list = query(cur_model= module,
+
+res_list = simple_query(cur_model= module,
                  cur_host_port=G_cur_host_port,
                  query_list=q_list)
 for i in range(0,len(res_list)):
