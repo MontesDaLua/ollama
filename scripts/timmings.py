@@ -4,12 +4,11 @@ import time
 from config.config import G_cur_host_port
 # Common definitions
 G_NRequest = 1
-
 module_list = [
  #'llama3.2',
  #'lama2-uncensored:latest',
- #'phi4-mini',
-  'deepseek-r1'
+ 'phi4-mini',
+  #'deepseek-r1'
 ]
 
 def timmings(NRequest, cur_model, cur_host_port):
