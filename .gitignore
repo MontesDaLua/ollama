@@ -1,2 +1,7 @@
-myvenv
+# local environment
+myvenv*
+local_python_environment/
+# python cache
 __pycache__/
+# Virtual studio cache
+.vs
