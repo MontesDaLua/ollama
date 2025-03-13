@@ -19,3 +19,8 @@ lint:
 		.\$(ENVNAME)\Scripts\activate
 	  set PYTHONPATH=modules
 		pylint .\scripts .\modules
+
+test:
+		.\$(ENVNAME)\Scripts\activate
+	  set PYTHONPATH=modules
+		python -m unittest discover modules

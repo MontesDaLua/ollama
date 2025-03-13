@@ -61,3 +61,6 @@ res_list = simple_query(cur_model=MODULE,
 for r in res_list:
     print("------------------------")
     print(f"\t{r}")
+
+# if __name__ == '__main__':
+#     unittest.main()
