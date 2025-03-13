@@ -1,26 +1,8 @@
+"""
+test simple query to GenAi server
+"""
 from ollama import Client
-import json
-import time
-from config.config import G_cur_host_port
-# Common definitions
-# Module to use in  ollama
-module = 'phi4-mini'
-# Query list
-q_list = [
-      {
-        'role': 'user',
-        'content': ".".join([
-            'Why is the sky blue?',
-            'reply in markdown'
-        ])
-      },
-      {
-        'role': 'user',
-        'content': ".".join([
-            'When the  sky is blue?'
-        ])
-      },
-]
+from config.config import G_CUR_HOST_PORT
 
 def simple_query(cur_model, cur_host_port, query_list):
     """
@@ -38,9 +20,30 @@ def simple_query(cur_model, cur_host_port, query_list):
     return response_list
 
 
-res_list = simple_query(cur_model= module,
-                 cur_host_port=G_cur_host_port,
+# Common definitions
+# Module to use in  ollama
+MODULE = 'phi4-mini'
+# Query list
+q_list = [
+      {
+        'role': 'user',
+        'content': ".".join([
+            'Why is the sky blue?',
+            'reply in markdown'
+        ])
+      },
+      {
+        'role': 'user',
+        'content': ".".join([
+            'When the  sky is blue?'
+        ])
+      },
+]
+
+res_list = simple_query(cur_model= MODULE,
+                 cur_host_port= G_CUR_HOST_PORT,
                  query_list=q_list)
+
 for i in range(0,len(res_list)):
     print("------------------------")
     print(i+1)

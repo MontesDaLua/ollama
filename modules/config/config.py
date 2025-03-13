@@ -1,2 +1,5 @@
+"""
+Local ollama bindings 
+"""
 # Ollama endpoint
-G_cur_host_port = "http://localhost:11434"
+G_CUR_HOST_PORT = "http://localhost:11434"
