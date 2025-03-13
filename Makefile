@@ -13,4 +13,9 @@ install:
 		pip install -r  .\requirements.txt
 
 clean:
-	 del -r -y $(ENVNAME)
+	 rmdir /s /q $(ENVNAME)
+
+lint:
+		.\$(ENVNAME)\Scripts\activate
+	  set PYTHONPATH=modules
+		pylint .\scripts .\modules

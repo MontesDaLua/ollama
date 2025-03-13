@@ -14,9 +14,8 @@ def simple_query(cur_model, cur_host_port, query_list):
     )
     response_list = []
     for q in query_list:
-        response_list.append(
-            client.chat(model=cur_model, messages=[q]).message.content
-        )
+        response = client.chat(model=cur_model, messages=[q])
+        response_list.append( response.message.content )
     return response_list
 
 
@@ -44,8 +43,6 @@ res_list = simple_query(cur_model= MODULE,
                  cur_host_port= G_CUR_HOST_PORT,
                  query_list=q_list)
 
-for i in range(0,len(res_list)):
+for r in res_list:
     print("------------------------")
-    print(i+1)
-    print("------------------------")
-    print(f"\t{res_list[i]}")
+    print(f"\t{r}")
