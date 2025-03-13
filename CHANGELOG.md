@@ -20,4 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - lint in Makefile
   - .pylint.rc file
   - pylint clear errors
-  - pylint check 
+  - pylint check
+## [0.1.4] - 2025-03-13
+### Added
+  - add README.md
