@@ -3,7 +3,7 @@ Dummy test2
 """
 import unittest
 
-class TestConfig1(unittest.TestCase):
+class TestConfig2(unittest.TestCase):
     """
     Config modules test suit 2
     """

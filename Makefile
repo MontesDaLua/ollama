@@ -1,4 +1,4 @@
-# Windows version
+# Windows version :-(
 
 
 .PHONY: all clean install test
@@ -24,3 +24,4 @@ test:
 		.\$(ENVNAME)\Scripts\activate
 	  set PYTHONPATH=modules
 		python -m unittest discover modules
+		python -m unittest discover scripts
