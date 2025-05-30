@@ -1,27 +1,32 @@
 # Windows version :-(
 
 
-.PHONY: all clean install test
+.PHONY: all clean install test venv lint
 
-#all: build run-tests
-ENVNAME := local_python_environment
+SHELL := /bin/bash
+VENV_DIR := local_python_environment
+PYTHON := python3
+
+venv:
+	@if [ ! -d $(VENV_DIR) ]; then \
+		$(PYTHON) -m venv $(VENV_DIR); \
+	fi
 
 install:
-		python -m venv $(ENVNAME)
-		.\$(ENVNAME)\Scripts\activate
-		python -m pip install --upgrade pip
-		pip install -r  .\requirements.txt
+	@source ./$(VENV_DIR)/bin/activate && \
+		pip install -r  requirements.txt
 
 clean:
-	 rmdir /s /q $(ENVNAME)
+	@rm -rf $(VENV_DIR)
 
-lint:
-		.\$(ENVNAME)\Scripts\activate
-	  set PYTHONPATH=modules
-		pylint .\scripts .\modules
+lint: install
+		@source ./$(VENV_DIR)/bin/activate && \
+	  	PYTHONPATH=modules pylint scripts modules
 
 test:
-		.\$(ENVNAME)\Scripts\activate
-	  set PYTHONPATH=modules
-		python -m unittest discover modules
-		python -m unittest discover scripts
+		@source ./$(VENV_DIR)/bin/activate && \
+	  	PYTHONPATH=modules python -m unittest discover modules
+		@source ./$(VENV_DIR)/bin/activate && \
+	  	PYTHONPATH=modules python -m unittest discover scripts
+
+#all: build run-tests
